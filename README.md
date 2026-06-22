@@ -1,341 +1,299 @@
 # 9jaWin - Multiplayer WHOT Card Game
 
-A complete production-ready multiplayer WHOT card game platform built with Node.js, Express, Socket.IO, and MySQL.
+[![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
+[![Express](https://img.shields.io/badge/Express-4.18+-blue.svg)](https://expressjs.com/)
+[![MySQL](https://img.shields.io/badge/MySQL-8.0+-orange.svg)](https://www.mysql.com/)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-## Features
+9jaWin is a full-stack multiplayer WHOT card game platform with real-time gameplay, wallet management, and tournament support.
 
-### 🎮 Game Features
-- **Complete WHOT Rules**: Standard WHOT card game with all special cards
-- **Multiplayer Gameplay**: 2, 3, or 4 player support
-- **Real-time Synchronization**: Live card updates using Socket.IO
-- **Anti-Cheat System**: Server-side card dealing and move validation
-- **Mobile Responsive**: Works seamlessly on desktop and mobile
+## 🎮 Features
 
-### 🎫 Game Modes
-- **Free Games**: No money involved
-- **Money Matches**: Entry fees with wallet system
-- **Tournaments**: Admin-created tournaments with prize pools
+### Game Features
+- **Real-time Multiplayer**: 2-4 players per game using WebSocket
+- **WHOT Card Game**: Full implementation of traditional WHOT rules
+- **Game Modes**: Free play and money matches
+- **Tournaments**: Create and join tournaments with prize pools
+- **Leaderboards**: Track player statistics and rankings
+- **In-game Chat**: Real-time messaging during gameplay
 
-### 💰 Wallet & Payment
-- Deposit and withdrawal system
-- Transaction history
-- Automatic fee deduction
-- Prize pool calculations
-- 20% platform fee on games, 30% on tournaments
+### Wallet & Payments
+- **Digital Wallet**: Deposit and withdraw funds
+- **Payment Integration**: Paystack payment processor
+- **Transaction History**: Track all deposits, withdrawals, and winnings
+- **Secure Transactions**: Encrypted payment processing
 
-### 👥 User System
-- User registration and login
-- JWT authentication
-- User profiles with avatars
-- Online/offline status
-- Friend system
-- Leaderboards
+### User Features
+- **User Authentication**: JWT-based authentication
+- **User Profiles**: Customizable profiles with avatar and bio
+- **Friends System**: Add friends and see their status
+- **Statistics**: Win/loss records and game history
+- **Notifications**: Real-time game notifications
 
-### 📊 Admin Dashboard
-- User management
-- Tournament creation and management
-- Revenue tracking
-- Wallet operations
-- Match history and statistics
+### Admin Dashboard
+- **User Management**: View and manage users
+- **Tournament Creation**: Create and manage tournaments
+- **Analytics**: Platform statistics and revenue tracking
+- **Content Moderation**: Manage reported content
 
-### 💬 Communication
-- In-game chat
-- Emoji reactions
-- Voice chat ready (architecture)
-- Notifications
-
-### 🔐 Security
-- JWT token authentication
-- Password hashing with bcrypt
-- CORS protection
-- Rate limiting
-- Input validation
-- SQL injection prevention
-
-## Tech Stack
-
-### Backend
-- **Runtime**: Node.js
-- **Framework**: Express.js
-- **Real-time**: Socket.IO
-- **Database**: MySQL with Sequelize ORM
-- **Authentication**: JWT
-- **Caching**: Redis (optional)
+## 🛠 Tech Stack
 
 ### Frontend
-- **HTML5**: Semantic markup
-- **CSS3**: Modern styling with animations
-- **JavaScript**: ES6+ with vanilla JS
-- **Socket.IO Client**: Real-time communication
+- HTML5, CSS3, JavaScript (Vanilla)
+- Socket.IO Client for real-time communication
+- Responsive design (mobile-friendly)
+
+### Backend
+- Node.js with Express.js
+- Socket.IO for WebSocket connections
+- Sequelize ORM for MySQL
+- JWT for authentication
+- Redis for caching and sessions
+
+### Database
+- MySQL 8.0
+- InnoDB storage engine
+- Optimized indexes for performance
 
 ### DevOps
-- **Docker**: Containerized deployment
-- **Docker Compose**: Multi-container orchestration
-- **Environment Config**: .env based
+- Docker & Docker Compose
+- Nginx reverse proxy
+- PM2 process manager
+- SSL/TLS support
 
-## Installation
-
-### Prerequisites
-- Node.js >= 18.0.0
-- MySQL >= 5.7
-- Redis (optional, for scaling)
-- Docker & Docker Compose (optional)
-
-### Local Setup
-
-1. **Clone the repository**
-```bash
-git clone https://github.com/onyekachidera61-collab/whot.git
-cd whot
-```
-
-2. **Install dependencies**
-```bash
-npm install
-```
-
-3. **Setup environment variables**
-```bash
-cp .env.example .env
-# Edit .env with your configuration
-```
-
-4. **Create database**
-```bash
-mysql -u root -p < database/schema.sql
-```
-
-5. **Run migrations**
-```bash
-npm run migrate
-```
-
-6. **Seed sample data**
-```bash
-npm run seed
-```
-
-7. **Start the server**
-```bash
-npm run dev
-```
-
-### Docker Setup
-
-```bash
-# Build and start containers
-docker-compose up -d
-
-# View logs
-docker-compose logs -f app
-
-# Stop containers
-docker-compose down
-```
-
-## Project Structure
+## 📁 Project Structure
 
 ```
 whot/
-├── backend/
+├── backend/              # Backend Node.js application
 │   ├── src/
-│   │   ├── config/
-│   │   ├── controllers/
-│   │   ├── models/
-│   │   ├── routes/
-│   │   ├── services/
-│   │   ├── middleware/
-│   │   ├── utils/
-│   │   ├── events/
-│   │   ├── validators/
-│   │   └── app.js
-│   ├── tests/
-│   ├── scripts/
-│   └── server.js
-├── frontend/
+│   │   ├── config/      # Configuration files
+│   │   ├── controllers/ # Request handlers
+│   │   ├── models/      # Database models
+│   │   ├── routes/      # API endpoints
+│   │   ├── services/    # Business logic
+│   │   ├── middleware/  # Express middleware
+│   │   ├── events/      # Socket.IO handlers
+│   │   └── utils/       # Helper functions
+│   ├── tests/           # Unit & integration tests
+│   ├── server.js        # Entry point
+│   └── package.json
+├── frontend/            # Frontend static files
 │   ├── index.html
-│   ├── css/
-│   │   ├── main.css
-│   │   ├── game.css
-│   │   └── responsive.css
-│   ├── js/
-│   │   ├── main.js
-│   │   ├── game.js
-│   │   ├── socket-client.js
-│   │   ├── auth.js
-│   │   ├── wallet.js
-│   │   └── ui.js
-│   └── assets/
-├── database/
-│   ├── schema.sql
-│   ├── migrations/
-│   └── seeds/
-├── docker/
+│   ├── css/             # Stylesheets
+│   └── js/              # Client-side scripts
+├── database/            # Database files
+│   ├── schema.sql       # Database schema
+│   └── seeds.sql        # Sample data
+├── docker/              # Docker configuration
 │   ├── Dockerfile
-│   └── docker-compose.yml
-├── docs/
+│   ├── docker-compose.yml
+│   └── nginx.conf
+├── docs/                # Documentation
 │   ├── API.md
 │   ├── GAME_RULES.md
 │   ├── ARCHITECTURE.md
 │   └── DEPLOYMENT.md
-├── .env.example
-├── package.json
-└── README.md
+└── README.md            # This file
 ```
 
-## API Documentation
+## 🚀 Quick Start
 
-See [API.md](docs/API.md) for complete REST API documentation.
+### Prerequisites
+- Node.js >= 18.0.0
+- MySQL >= 8.0
+- Docker & Docker Compose (optional)
 
-### Key Endpoints
+### Development Setup
 
-**Authentication**
-- `POST /api/auth/register` - User registration
-- `POST /api/auth/login` - User login
-- `POST /api/auth/refresh` - Refresh JWT token
-- `POST /api/auth/logout` - User logout
+1. **Clone Repository**
+   ```bash
+   git clone https://github.com/onyekachidera61-collab/whot.git
+   cd whot
+   ```
 
-**Game**
-- `POST /api/games/room` - Create room
-- `GET /api/games/room/:roomId` - Get room details
-- `POST /api/games/room/join` - Join room
-- `GET /api/games/history` - Get match history
+2. **Install Dependencies**
+   ```bash
+   npm install
+   ```
 
-**Wallet**
-- `GET /api/wallet/balance` - Get wallet balance
-- `POST /api/wallet/deposit` - Deposit money
-- `POST /api/wallet/withdraw` - Request withdrawal
-- `GET /api/wallet/transactions` - Get transaction history
+3. **Configure Environment**
+   ```bash
+   cp .env.example .env
+   # Edit .env with your settings
+   ```
 
-**Tournament**
-- `GET /api/tournaments` - List tournaments
-- `POST /api/tournaments` - Create tournament (admin)
-- `POST /api/tournaments/:id/join` - Join tournament
-- `GET /api/tournaments/:id/results` - Get tournament results
+4. **Setup Database**
+   ```bash
+   mysql -u root -p < database/schema.sql
+   npm run migrate
+   npm run seed  # Optional: Load sample data
+   ```
 
-**Admin**
-- `GET /api/admin/dashboard` - Dashboard statistics
-- `GET /api/admin/users` - List users
-- `POST /api/admin/tournament` - Create tournament
-- `GET /api/admin/revenue` - Revenue report
+5. **Start Development Server**
+   ```bash
+   # Terminal 1: Backend
+   npm run dev
 
-## Game Rules
+   # Terminal 2: Serve Frontend
+   cd frontend
+   python -m http.server 8000
+   ```
 
-See [GAME_RULES.md](docs/GAME_RULES.md) for detailed game rules.
+6. **Access Application**
+   - Frontend: http://localhost:8000
+   - Backend API: http://localhost:5000
+   - Socket.IO: ws://localhost:5001
 
-### Card Categories
-- **Circle**: Green cards
-- **Triangle**: Blue cards
-- **Square**: Red cards
-- **Star**: Yellow cards
-- **Cross**: Purple cards
+### Docker Deployment
 
-### Special Cards
-- **WHOT 20**: Player chooses shape, next player follows
-- **Hold On**: Skip next player
-- **Pick Two**: Next player picks 2 cards
-- **General Market**: All players pick cards
-- **Suspension**: Block next player
-- **Star**: Special action card
+1. **Build and Run**
+   ```bash
+   docker-compose up -d
+   ```
 
-## Socket.IO Events
+2. **Initialize Database**
+   ```bash
+   docker-compose exec app npm run migrate
+   docker-compose exec app npm run seed
+   ```
 
-### Emitted by Client
-- `join_game` - Join a game room
-- `play_card` - Play a card
-- `pick_card` - Pick from deck
-- `leave_game` - Leave game
-- `message` - Send chat message
+3. **Access Application**
+   - Frontend: http://localhost
+   - API: http://localhost/api
 
-### Emitted by Server
-- `player_joined` - New player joined
-- `turn_changed` - Turn passed to next player
-- `card_played` - Card was played
-- `game_started` - Game started
-- `game_ended` - Game finished with winner
-- `error` - Error occurred
+## 📚 Documentation
 
-## Database Schema
+- **[API Documentation](docs/API.md)** - Complete API reference
+- **[Game Rules](docs/GAME_RULES.md)** - WHOT game rules and scoring
+- **[Architecture](docs/ARCHITECTURE.md)** - System design and architecture
+- **[Deployment Guide](docs/DEPLOYMENT.md)** - Production deployment guide
 
-See database/schema.sql for complete schema.
+## 🎮 Game Rules
 
-### Main Tables
-- `users` - User accounts
+**WHOT** is a Nigerian card game where players try to be the first to play all their cards.
+
+### Basic Rules
+- Each player gets 4 cards initially
+- Play a card matching the shape or number of the top card
+- WHOT (20) card can be played anytime and lets you choose a shape
+- Special cards have unique effects:
+  - **Hold On**: Skip next player
+  - **Pick Two**: Next player picks 2 cards
+  - **General Market**: All players pick 1 card
+  - **Suspension**: Block next player
+
+### Winning
+- First player to play all cards wins
+- In money matches, winner gets prize pool
+- In tournaments, top positions get rewards
+
+For detailed rules, see [GAME_RULES.md](docs/GAME_RULES.md)
+
+## 🔐 Security
+
+- JWT token-based authentication
+- Password hashing with bcrypt
+- Server-side game validation (anti-cheat)
+- SQL injection prevention (Sequelize ORM)
+- CORS configuration
+- Rate limiting on API endpoints
+- Secure WebSocket connections
+
+## 📊 Database Schema
+
+Main tables:
+- `users` - User accounts and profiles
 - `wallets` - User wallet balances
-- `transactions` - Wallet transactions
-- `matches` - Game matches
-- `match_players` - Players in matches
-- `game_sessions` - Active game sessions
-- `tournaments` - Tournament definitions
+- `transactions` - Payment transactions
+- `matches` - Game match records
+- `match_players` - Players in each match
+- `tournaments` - Tournament details
 - `tournament_players` - Tournament participants
-- `rewards` - Prize pool rewards
+- `messages` - In-game chat messages
 - `friendships` - Friend relationships
-- `messages` - Chat messages
 
-## Security Considerations
+## 🧪 Testing
 
-✅ **Anti-Cheat**
-- All card dealing on server
-- Move validation on server
-- Duplicate move prevention
-- Secure Socket.IO events
+```bash
+# Run all tests
+npm test
 
-✅ **Authentication**
-- JWT tokens with expiration
-- Refresh token rotation
-- Secure password hashing
-- CORS protection
+# Run specific test suite
+npm test -- game.test.js
 
-✅ **Rate Limiting**
-- API rate limiting
-- Socket.IO event throttling
-- Login attempt limiting
+# Run with coverage
+npm run test:coverage
+```
 
-✅ **Data Validation**
-- Input validation on all endpoints
-- Joi schema validation
-- SQL injection prevention
-- XSS protection
+## 📈 Performance
 
-## Performance
+- Database query optimization with indexes
+- Redis caching for frequently accessed data
+- Gzip compression for responses
+- Lazy loading of game resources
+- Connection pooling for database
+- Socket.IO message compression
 
-- **Scalable**: Designed for thousands of concurrent players
-- **Real-time**: Socket.IO for instant updates
-- **Optimized**: Efficient database queries
-- **Caching**: Redis support for session caching
-- **Load Balancing**: Ready for horizontal scaling
+## 🐛 Troubleshooting
 
-## Monitoring & Logging
+### Database Connection Error
+```bash
+# Check MySQL is running
+sudo systemctl status mysql
 
-- Winston logger for application logs
-- Error tracking and reporting
-- Performance monitoring
-- Transaction logging
+# Verify credentials in .env
+```
 
-## Contributing
+### Socket Connection Failed
+```bash
+# Check socket server is running on port 5001
+netstat -an | grep 5001
+
+# Verify CORS settings in .env
+```
+
+### Port Already in Use
+```bash
+# Find and kill process
+sudo lsof -i :5000
+sudo kill -9 <PID>
+```
+
+See [DEPLOYMENT.md](docs/DEPLOYMENT.md) for more troubleshooting tips.
+
+## 🤝 Contributing
 
 1. Fork the repository
-2. Create feature branch (`git checkout -b feature/AmazingFeature`)
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
 3. Commit changes (`git commit -m 'Add AmazingFeature'`)
 4. Push to branch (`git push origin feature/AmazingFeature`)
-5. Open Pull Request
+5. Open a Pull Request
 
-## License
+## 📄 License
 
-This project is licensed under the MIT License - see LICENSE file for details.
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-## Support
+## 👥 Authors
 
-For support, email support@9jawin.com or open an issue in the repository.
+- **Onyekachidera** - Initial work
 
-## Deployment
+## 🙏 Acknowledgments
 
-See [DEPLOYMENT.md](docs/DEPLOYMENT.md) for production deployment instructions.
+- WHOT card game community
+- Open source contributors
+- Nigerian tech community
 
-## WordPress Integration
+## 📞 Support
 
-The API is ready for WordPress integration. WordPress users can authenticate using JWT tokens obtained from `/api/auth/login` endpoint.
+For support, email support@9jawin.com or open an issue on GitHub.
+
+## 🔗 Links
+
+- **GitHub**: https://github.com/onyekachidera61-collab/whot
+- **Website**: https://9jawin.com (Coming soon)
+- **Community**: Discord (Link coming soon)
 
 ---
 
-**Made with ❤️ for Nigerian gamers**
+**Made with ❤️ in Nigeria**
