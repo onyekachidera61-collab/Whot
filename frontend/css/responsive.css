@@ -1,0 +1,353 @@
+/* Responsive Design */
+
+@media (max-width: 1024px) {
+  .game-table {
+    grid-template-areas:
+      "players-container"
+      "table-center"
+      "hand"
+      "chat"
+      "timer";
+    height: auto;
+  }
+
+  .players-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .wallet-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  .navbar {
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px;
+  }
+
+  .navbar-menu {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .navbar-menu a {
+    padding: 8px;
+  }
+
+  .auth-box {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .auth-form h2 {
+    font-size: 20px;
+  }
+
+  .main-content {
+    padding: 10px;
+  }
+
+  .home-hero h2 {
+    font-size: 24px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+  }
+
+  .games-list {
+    grid-template-columns: 1fr;
+  }
+
+  .players-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .player-slot {
+    padding: 10px;
+    min-height: 80px;
+  }
+
+  .card {
+    width: 80px;
+    height: 120px;
+    font-size: 18px;
+  }
+
+  .card.player-card {
+    width: 60px;
+    height: 90px;
+    font-size: 14px;
+  }
+
+  .cards-container {
+    justify-content: flex-start;
+  }
+
+  .timer {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+  }
+
+  .game-timer {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .chat-box {
+    max-height: 150px;
+  }
+
+  .messages {
+    font-size: 12px;
+  }
+
+  .message {
+    padding: 6px 10px;
+  }
+
+  .filter-buttons {
+    flex-direction: column;
+  }
+
+  .filter-buttons .btn {
+    width: 100%;
+  }
+
+  .screen-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .balance {
+    font-size: 36px;
+  }
+
+  .profile-header {
+    padding: 20px 10px;
+  }
+
+  .avatar-large {
+    width: 80px;
+    height: 80px;
+  }
+
+  .profile-header h2 {
+    font-size: 20px;
+  }
+
+  .profile-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .stat {
+    padding: 12px;
+  }
+
+  .stat-value {
+    font-size: 20px;
+  }
+
+  .stat-label {
+    font-size: 12px;
+  }
+
+  .modal-content {
+    width: 95%;
+  }
+
+  .modal-body {
+    padding: 15px;
+  }
+
+  .modal-footer {
+    flex-direction: column;
+  }
+
+  .modal-footer .btn {
+    max-width: none;
+    width: 100%;
+  }
+
+  .toast-container {
+    left: 10px;
+    right: 10px;
+  }
+
+  .toast {
+    margin: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-brand h1 {
+    font-size: 18px;
+  }
+
+  .navbar-menu {
+    gap: 5px;
+  }
+
+  .navbar-menu a {
+    font-size: 12px;
+  }
+
+  .auth-header h1 {
+    font-size: 24px;
+  }
+
+  .auth-form {
+    gap: 10px;
+  }
+
+  .auth-form input {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .screen-header h2 {
+    font-size: 20px;
+  }
+
+  .home-hero {
+    padding: 20px 10px;
+  }
+
+  .home-hero h2 {
+    font-size: 20px;
+  }
+
+  .home-hero p {
+    font-size: 14px;
+  }
+
+  .player-slot {
+    min-height: 70px;
+    padding: 8px;
+  }
+
+  .player-avatar {
+    width: 35px;
+    height: 35px;
+    margin-bottom: 5px;
+  }
+
+  .player-name {
+    font-size: 12px;
+  }
+
+  .player-cards-count {
+    font-size: 10px;
+  }
+
+  .card {
+    width: 70px;
+    height: 105px;
+    font-size: 16px;
+  }
+
+  .card.player-card {
+    width: 50px;
+    height: 75px;
+    font-size: 12px;
+  }
+
+  .timer {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+
+  .game-timer p {
+    font-size: 12px;
+  }
+
+  .cards-container {
+    gap: 5px;
+  }
+
+  .chat-box {
+    max-height: 120px;
+    padding: 10px;
+  }
+
+  #chatInput {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+
+  .chat-box button {
+    padding: 6px 12px;
+    font-size: 11px;
+  }
+
+  .message {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+
+  .balance {
+    font-size: 28px;
+  }
+
+  .wallet-actions {
+    flex-direction: column;
+  }
+
+  .wallet-actions .btn {
+    width: 100%;
+  }
+
+  .stat-value {
+    font-size: 18px;
+  }
+
+  .modal-content {
+    width: 98%;
+  }
+
+  .modal-header {
+    padding: 15px;
+  }
+
+  .modal-header h2 {
+    font-size: 18px;
+  }
+
+  .close {
+    font-size: 24px;
+  }
+
+  .game-over h2 {
+    font-size: 24px;
+  }
+
+  .winner-name {
+    font-size: 18px;
+  }
+
+  .prize-amount {
+    font-size: 22px;
+  }
+}
